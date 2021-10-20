@@ -1,8 +1,7 @@
 import styled from "styled-components"
 
 const ContainerAccount = styled.div`
-    background-color: #8C11BE;
-    width: 100vw;
+    width: 80vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
