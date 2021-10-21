@@ -1,4 +1,5 @@
-import {Container, Header, Input, Button} from './ContainerTransaction';
+import {Container, Header} from './ContainerTransaction';
+import {Input, Button} from '../UniversalStyles';
 
 export default function Transaction({type}) {
     let text = "";

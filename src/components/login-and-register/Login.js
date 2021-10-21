@@ -1,4 +1,5 @@
-import {Container, Logo, Form, P, Input, Button} from './ContainerAccount';
+import {Container, Logo, Form, P} from './ContainerAccount';
+import {Input, Button} from '../UniversalStyles';
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 
