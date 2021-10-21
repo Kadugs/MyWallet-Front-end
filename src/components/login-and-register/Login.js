@@ -23,7 +23,7 @@ export default function Login() {
                 <Input type="password" placeholder="Senha" value={password} onChange={event => setPassword(event.target.value)}/>
                 <Button type="submit">Entrar</Button>
             </Form>
-            <Link to="/signup">
+            <Link to="/sign-up">
                 <P>Primeira vez? Cadastre-se!</P>
             </Link>
         </Container>

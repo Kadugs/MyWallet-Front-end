@@ -81,6 +81,8 @@ const RecordDate = styled.div `
     font-size: 16px;
     color: #c6c6c6;
     margin-right: 10px;
+    display: inline-block;
+    width: 45px;
 `;  
 const RecordTitle = styled.div `
     font-size: 16px;
