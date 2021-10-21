@@ -19,13 +19,13 @@ export default function Main() {
     const nome = "Fulano";
     const records = [
         {
-            title: "Crack",
+            title: "Teste1",
             date: dayjs().format("DD/MM"),
             value: 40.00,
             type: "out",
         },
         {
-            title: "Cocaína",
+            title: "Teste2",
             date: "20/05",
             value: 100.00,
             type: "in",
