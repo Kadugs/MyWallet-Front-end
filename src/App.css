@@ -55,3 +55,6 @@ body {
 h1 {
   font-family: 'Saira Stencil One', cursive;
 }
+a {
+	text-decoration: none;
+}

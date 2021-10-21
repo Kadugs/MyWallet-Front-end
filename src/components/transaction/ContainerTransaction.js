@@ -1,24 +1,17 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.div `
     width: 87vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
 `;
-const Logo = styled.h1 `
+const Header = styled.p `
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-size: 26px;
     color: white;
-    font-size: 32px;
-    margin-bottom: 26px;
-`;
-
-const Form = styled.form `
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    font-weight: bold;
 `;
 const Input = styled.input `
     font-family: Raleway, monospace;
@@ -31,9 +24,9 @@ const Input = styled.input `
     font-size: 20px;
     margin-bottom: 13px;
     &::placeholder {
-            color: black;
-            font-size: 20px;
-        }
+        color: black;
+        font-size: 20px;
+    }
 `;
 const Button = styled.button `
     height: 46px;
@@ -43,20 +36,11 @@ const Button = styled.button `
     font-size: 20px;
     border: none;
     border-radius: 5px;
-`;
-
-const P = styled.p `
-    color: white;
-    font-size: 15px;
-    margin-top: 36px;
-    font-weight: bold;
-`;
+`
 
 export {
     Container,
-    Logo,
-    Form,
-    P,
+    Header,
     Input,
     Button,
 }
