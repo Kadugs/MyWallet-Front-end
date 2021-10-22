@@ -17,12 +17,18 @@ const Input = styled.input `
 `;
 const Button = styled.button `
     height: 46px;
-    background-color: #A328D6;
+    background-color: ${props => props.disabled ? '#6c0996' : '#A328D6'};
     color: white;
     font-weight: bold;
     font-size: 20px;
     border: none;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .button-loading {
+        padding-bottom: 30px;
+    }
 `
 export {
     Input,

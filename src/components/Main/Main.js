@@ -10,12 +10,13 @@ import {
     RecordTitle,
     Total
 } from "../Main/ContainerMain"
-
 import {IoAddCircleOutline, IoRemoveCircleOutline, IoExitOutline} from "react-icons/io5"
 import {Link} from "react-router-dom";
 import dayjs from "dayjs"
+import {MainScreenLoading} from "../Loading"
+
 export default function Main() {
-    const total = 1000
+    const total = 1000;
     const nome = "Fulano";
     const records = [
         {

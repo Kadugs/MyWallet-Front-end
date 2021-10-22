@@ -26,10 +26,16 @@ const P = styled.p `
     margin-top: 36px;
     font-weight: bold;
 `;
+const Error = styled.span `
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+`;
 
 export {
     Container,
     Logo,
     Form,
     P,
+    Error
 }
