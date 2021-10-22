@@ -21,7 +21,7 @@ export default function Login() {
         }
         signIn(body)
          .then((res) => {
-            localStorage.setItem("@token", JSON.stringify(res.data));
+            localStorage.setItem("@userInfos", JSON.stringify(res.data));
             history.push("/");
             setIsButtonDisabled(false)
          })

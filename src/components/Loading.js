@@ -14,8 +14,8 @@ const MainScreenLoading = () => (
     <ReactLoading 
         type="spinningBubbles" 
         color="gray" 
-        height="160px" 
-        width="160px" 
+        height="60px" 
+        width="60px" 
         className="main-screen-loading"
     />
 )
