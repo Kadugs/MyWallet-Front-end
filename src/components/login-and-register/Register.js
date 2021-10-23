@@ -1,5 +1,5 @@
-import {Container, Logo, Form, P, Error} from './ContainerAccount';
-import {Input, Button} from '../UniversalStyles';
+import { Container, Logo, Form, P, } from './ContainerAccount';
+import { Input, Button, Error, } from '../UniversalStyles';
 import {Link, useHistory} from 'react-router-dom';
 import { useState } from 'react';
 import {signUp} from '../../services/API';

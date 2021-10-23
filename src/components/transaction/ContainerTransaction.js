@@ -5,6 +5,11 @@ const Container = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .back-button {
+        margin-top: 20px;
+        color: white;
+        font-size: 22px;
+    }
 `;
 const Header = styled.p `
     margin-top: 25px;
@@ -12,6 +17,7 @@ const Header = styled.p `
     font-size: 26px;
     color: white;
     font-weight: bold;
+
 `;
 
 

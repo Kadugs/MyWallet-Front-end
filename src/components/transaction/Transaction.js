@@ -1,21 +1,55 @@
 import {Container, Header} from './ContainerTransaction';
-import {Input, Button} from '../UniversalStyles';
+import {Input, Button, Error} from '../UniversalStyles';
+import {useState, useEffect} from 'react'
+import { useHistory } from 'react-router';
+import {IoArrowBackOutline} from 'react-icons/io5';
+import {postTransaction} from '../../services/API';
+import {ButtonLoading} from '../Loading';
 
 export default function Transaction({type}) {
-    let text = "";
-    switch(type) {
-        case 1: text = "entrada";
-        break;
-        case 2: text = "saída";
-        break;
-        default: text = "";
+    const history = useHistory();
+    const [value, setValue] = useState();
+    const [description, setDescription] = useState();
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [errorText, setErrorText] = useState("");
+    const [text, setText] = useState("");
+    const { token } = JSON.parse(localStorage.getItem("@userInfos"));
+    function requestTransaction() {
+        setIsButtonDisabled(true);
+
+        const body = {
+            name: description,
+            value,
+            type,            
+        }
+
+        postTransaction(body, token)
+            .then(() => {
+                history.push("/")
+                setIsButtonDisabled(false);
+            })
+            .catch(error => {
+                if(error.response) setErrorText(error.response.data);
+                setIsButtonDisabled(false);
+            })
     }
+    useEffect(() =>{
+        switch(type) {
+            case "in": setText("entrada");
+            break;
+            case "out": setText("saída");
+            break;
+            default: setText("");
+        }
+    }, [setText, type])
     return (
         <Container>
+            <IoArrowBackOutline onClick={() => history.push("/")} className="back-button"/>
             <Header>Nova {text}</Header>
-            <Input type="number" placeholder="Valor"/>
-            <Input type="text" placeholder="Descrição"/>
-            <Button>Salvar {text}</Button>
+            <Input type="text" placeholder="Valor" value={value} onChange={event => setValue(event.target.value)} />
+            <Input type="text" placeholder="Descrição" value={description} onChange={event => setDescription(event.target.value)} />
+            <Button onClick={requestTransaction}>{isButtonDisabled ? <ButtonLoading /> : `Salvar ${text}`}</Button>
+            <Error>{errorText}</Error>
         </Container>
     )
 }

@@ -29,8 +29,14 @@ const Button = styled.button `
     .button-loading {
         padding-bottom: 30px;
     }
-`
+`;
+const Error = styled.span `
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+`;
 export {
     Input,
     Button,
+    Error
 }

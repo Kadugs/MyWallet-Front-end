@@ -7,7 +7,7 @@ import {
     Record,
     RecordDate,
     RecordValue,
-    RecordTitle,
+    RecordName,
     Total
 } from "../Main/ContainerMain"
 import {IoAddCircleOutline, IoRemoveCircleOutline, IoExitOutline} from "react-icons/io5"
@@ -18,18 +18,28 @@ import { getTransactions, signOut } from "../../services/API";
 import {useState, useEffect} from "react";
 import { useHistory } from "react-router";
 export default function Main() {
-    const total = 1000;
+    const [total, setTotal] = useState(0);
     const [records, setRecords] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
-    const { token, name } = JSON.parse(localStorage.getItem("@userInfos"));
-
+    const userInfo = JSON.parse(localStorage.getItem("@userInfos"));
+    if(!userInfo) {
+        history.push("/sign-in");
+    }
+    const {token, name} = userInfo;
     useEffect(() => {
         setIsLoading(true);
         getTransactions(token)
         .then((transactions) => {
             setRecords(transactions.data);
             setIsLoading(false);
+            transactions.data.forEach(transaction => {
+                if(transaction.type === "in") {
+                    setTotal(t => t + transaction.value);
+                } else {
+                    setTotal(t => t - transaction.value);
+                }
+            })
         })
         .catch((err) => {
             console.error(err)
@@ -37,7 +47,7 @@ export default function Main() {
             localStorage.removeItem("@userInfos");
             alert("Erro no servidor!");
             setIsLoading(false);
-        })    
+        })
     }, [history, token, setIsLoading])
 
     function logOut() {
@@ -63,17 +73,17 @@ export default function Main() {
                 records.length === 0 ?
                  <p>Não há registros de entrada ou saída</p> 
                  : 
-                records.map(record => (
-                    <Record>
+                records.map((record, index ) => 
+                    <Record key={index}>
                         <div>
-                        <RecordDate>{dayjs(record.date).format("DD/MM")}</RecordDate>
-                        <RecordTitle>{record.title}</RecordTitle>
+                            <RecordDate>{dayjs(record.date).format("DD/MM")}</RecordDate>
+                            <RecordName>{record.name}</RecordName>
                         </div>
                         <RecordValue 
                             color={record.type === 'in' ? '#03AC00' : '#C70000'}
                         >{record.value.toFixed(2)}</RecordValue>
-                    </Record >))
-                }
+                    </Record >
+                )}
                 <Total color={total >= 0 ? '#03AC00' : '#C70000'}>
                     {records.length === 0 ? "" :
                         (<>

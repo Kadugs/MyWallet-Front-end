@@ -84,7 +84,7 @@ const RecordDate = styled.div `
     display: inline-block;
     width: 45px;
 `;  
-const RecordTitle = styled.div `
+const RecordName = styled.div `
     font-size: 16px;
     color: black;
 `;
@@ -118,7 +118,7 @@ export {
     ChangeValueButtons,
     Record,
     RecordDate,
-    RecordTitle,
+    RecordName,
     RecordValue,
     Total,
 }

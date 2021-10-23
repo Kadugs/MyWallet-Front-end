@@ -17,10 +17,10 @@ export default function Routes() {
                     <Main />
                 </Route>
                 <Route exact path="/in">
-                    <Transaction type={1} />
+                    <Transaction type="in" />
                 </Route>
                 <Route exact path="/out">
-                    <Transaction type={2} />
+                    <Transaction type="out" />
                 </Route>
             </Switch>
         </>
