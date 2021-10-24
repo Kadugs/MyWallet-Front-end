@@ -28,12 +28,23 @@ const Records = styled.div `
     align-items: center;
     justify-content: ${props => props.haveContent ? 'start' : 'center'};
     background-color: white;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     color: #868686;
     width: 100%;
-    height: 100%;
+    height: 80%;
     padding: ${props => props.haveContent ? '23px 11px 0 11px' : '0'};
-    position: relative;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: white; 
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #a328d6;
+        border-radius: 5px 5px 0 0;
+    }
     p {
         display: inline-block;
         width: 180px;
@@ -92,15 +103,19 @@ const RecordValue = styled.div `
     color: ${props => props.color};
 `;
 const Total = styled.div `
+    z-index: 1;
+    background-color: white;
+    border-top: ${props => props.haveContent ? `solid 1px rgba(133, 133, 133, 0.3)` : 'none' };
+    height: 50px;
     width: 100%;
+    border-radius: 0 0 5px 5px;
+    align-items: center;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    bottom: 15px;
+    bottom: 0;
     font-size: 17px;
-
-    p {
+    p { 
         text-align: start;
         font-weight: bold;
         color: black;

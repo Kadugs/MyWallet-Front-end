@@ -26,10 +26,9 @@ export default function Main() {
     if(!userInfo) {
         history.push("/sign-in");
     }
-    const {token, name} = userInfo;
     useEffect(() => {
         setIsLoading(true);
-        getTransactions(token)
+        getTransactions(userInfo?.token)
         .then((transactions) => {
             setRecords(transactions.data);
             setIsLoading(false);
@@ -48,10 +47,10 @@ export default function Main() {
             alert("Erro no servidor!");
             setIsLoading(false);
         })
-    }, [history, token, setIsLoading])
+    }, [history, userInfo?.token, setIsLoading])
 
     function logOut() {
-        signOut(token)
+        signOut(userInfo?.token)
          .then(() => {
              localStorage.removeItem("@userInfos");
              history.push("/sign-in");
@@ -64,7 +63,7 @@ export default function Main() {
         return (
             <Container>
             <Top>
-                <Header>Olá, {name}</Header>
+                <Header>Olá, {userInfo?.name}</Header>
                 <IoExitOutline color="white" fontSize="26px" onClick={logOut} />
             </Top>
             <Records haveContent={records.length > 0}>
@@ -81,20 +80,19 @@ export default function Main() {
                         </div>
                         <RecordValue 
                             color={record.type === 'in' ? '#03AC00' : '#C70000'}
-                        >{record.value.toFixed(2)}</RecordValue>
+                        >{(record.value / 100).toFixed(2)}</RecordValue>
                     </Record >
                 )}
-                <Total color={total >= 0 ? '#03AC00' : '#C70000'}>
+            </Records>
+            <Total color={total >= 0 ? '#03AC00' : '#C70000'} haveContent={records.length > 0}>
                     {records.length === 0 ? "" :
                         (<>
                             <p>SALDO</p>
-                            <span>{total.toFixed(2)}</span>
+                            <span>{(total / 100).toFixed(2)}</span>
                             
                         </>)
                     }
-                </Total>
-
-            </Records>
+            </Total>
             <ChangeValueButtons>
                     <Link to="/in" className="bottom-buttons">
                         <IoAddCircleOutline color="white" fontSize="22px"/>

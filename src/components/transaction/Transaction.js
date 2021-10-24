@@ -13,17 +13,19 @@ export default function Transaction({type}) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [text, setText] = useState("");
-    const { token } = JSON.parse(localStorage.getItem("@userInfos"));
+    const userInfo = JSON.parse(localStorage.getItem("@userInfos"));
     function requestTransaction() {
         setIsButtonDisabled(true);
 
         const body = {
             name: description,
-            value,
+            value: value .toString(2) * 100,
             type,            
         }
-
-        postTransaction(body, token)
+        if(!userInfo) {
+            history.push("/sign-in");
+        }
+        postTransaction(body, userInfo?.token)
             .then(() => {
                 history.push("/")
                 setIsButtonDisabled(false);
