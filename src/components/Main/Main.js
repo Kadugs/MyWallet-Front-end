@@ -63,7 +63,12 @@ export default function Main() {
         return (
             <Container>
             <Top>
-                <Header>Olá, {userInfo?.name}</Header>
+                <Header>Olá, {
+                                userInfo?.name.length > 17 ? 
+                                userInfo.name.substring(0, 20) + '...'
+                                :
+                                userInfo.name
+                                }</Header>
                 <IoExitOutline color="white" fontSize="26px" onClick={logOut} />
             </Top>
             <Records haveContent={records.length > 0}>
@@ -76,7 +81,12 @@ export default function Main() {
                     <Record key={index}>
                         <div>
                             <RecordDate>{dayjs(record.date).format("DD/MM")}</RecordDate>
-                            <RecordName>{record.name}</RecordName>
+                            <RecordName>{
+                                record.name.length > 28 ? 
+                                record.name.substring(0, 32) + '...'
+                                :
+                                record.name
+                                }</RecordName>
                         </div>
                         <RecordValue 
                             color={record.type === 'in' ? '#03AC00' : '#C70000'}
