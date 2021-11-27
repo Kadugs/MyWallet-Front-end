@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import Routes from './components/Routes'
+import Routes from './components/Routes';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -8,4 +9,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
