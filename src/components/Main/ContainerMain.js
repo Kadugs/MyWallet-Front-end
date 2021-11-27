@@ -105,8 +105,10 @@ const RecordValue = styled.div`
 const Total = styled.div`
   z-index: 1;
   background-color: white;
-  border-top: ${(props) =>
-    props.haveContent ? 'solid 1px rgba(133, 133, 133, 0.3)' : 'none'};
+  border-top: ${(props) => {
+    const border = 'solid 1px rgba(133, 133, 133, 0.3)';
+    return props.haveContent ? border : 'none';
+  }};
   height: 50px;
   width: 100%;
   border-radius: 0 0 5px 5px;

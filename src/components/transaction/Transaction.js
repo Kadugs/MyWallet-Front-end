@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
-import { Container, Header } from './ContainerTransaction';
+// eslint-disable-next-line import/named
 import { Input, Button, Error } from '../UniversalStyles';
+import { Container, Header } from './ContainerTransaction';
 import { postTransaction } from '../../services/API';
 import { ButtonLoading } from '../Loading';
 

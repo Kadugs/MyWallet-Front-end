@@ -69,7 +69,6 @@ export default function Main() {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Não foi possível deslogar',
         });
       });
   }
