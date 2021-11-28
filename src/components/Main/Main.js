@@ -48,11 +48,6 @@ export default function Main() {
       .catch(() => {
         history.push('/sign-in');
         localStorage.removeItem('@userInfos');
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Erro no servidor',
-        });
         setIsLoading(false);
       });
   }, [history, userInfo?.token, setIsLoading]);
