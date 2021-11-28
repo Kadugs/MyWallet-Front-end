@@ -20,7 +20,7 @@ import {
   RecordValue,
   RecordName,
   Total,
-} from './ContainerMain';
+} from './MainStyles';
 
 export default function Main() {
   const [total, setTotal] = useState(0);
@@ -105,9 +105,7 @@ export default function Main() {
         )}
       </Records>
       <Total color={total >= 0 ? '#03AC00' : '#C70000'} haveContent={records.length > 0}>
-        {records.length === 0 ? (
-          ''
-        ) : (
+        {records.length !== 0 && (
           <>
             <p>SALDO</p>
             <span>{(total / 100).toFixed(2)}</span>

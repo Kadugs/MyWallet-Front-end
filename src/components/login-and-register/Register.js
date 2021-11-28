@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { Container, Logo, Form, P } from './ContainerAccount';
+import { Container, Logo, Form, P } from './AccountStyles';
 import { Input, Button, Error } from '../UniversalStyles';
 import { signUp } from '../../services/API';
 import { ButtonLoading } from '../Loading';

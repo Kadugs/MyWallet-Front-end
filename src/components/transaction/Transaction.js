@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 // eslint-disable-next-line import/named
 import { Input, Button, Error } from '../UniversalStyles';
-import { Container, Header } from './ContainerTransaction';
+import { Container, Header } from './TransactionStyles';
 import { postTransaction } from '../../services/API';
 import { ButtonLoading } from '../Loading';
 
