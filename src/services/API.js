@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL =
   process.env.REACT_APP_SERVER === 'local'
     ? 'http://localhost:4000'
-    : 'https://gratibox-cadu.herokuapp.com';
+    : 'https://mywallet-cadu.herokuapp.com';
 
 function createHeaders(token) {
   const config = {
