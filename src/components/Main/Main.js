@@ -45,8 +45,7 @@ export default function Main() {
           }
         });
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         history.push('/sign-in');
         localStorage.removeItem('@userInfos');
         Swal.fire({
@@ -72,6 +71,9 @@ export default function Main() {
           text: 'Não foi possível deslogar',
         });
       });
+  }
+  if (!userInfo) {
+    return <></>;
   }
   return (
     <Container>
