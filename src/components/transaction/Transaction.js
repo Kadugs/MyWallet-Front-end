@@ -54,15 +54,15 @@ export default function Transaction({ type }) {
       <Header>Nova {text}</Header>
       <Input
         type="text"
-        placeholder="Valor"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      />
-      <Input
-        type="text"
         placeholder="Descrição"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="Valor"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
       />
       <Button onClick={requestTransaction}>
         {isButtonDisabled ? <ButtonLoading /> : `Salvar ${text}`}
