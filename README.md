@@ -2,7 +2,9 @@
 
 MyWallet is a money management app, which stores values as the user adds them and generates a total value
 
-![alt-text](https://github.com/Kadugs/mywallet-front/blob/main/Captura%20de%20tela%20de%202021-11-29%2016-39-50.png)
+![alt-text](https://github.com/Kadugs/mywallet-front/blob/main/login-screen.png)
+![alt-text](https://github.com/Kadugs/mywallet-front/blob/main/no-infos.png)
+![alt-text](https://github.com/Kadugs/mywallet-front/blob/main/main-screen.png)
 
 ## Getting started
 
